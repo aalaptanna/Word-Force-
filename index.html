@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Word Force — Communication Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --f:'Inter',system-ui,sans-serif;
+  --ink:#0a0a09;
+  --mid:#888;
+  --dim:#bbb;
+  --off:#f7f7f5;
+  --line:rgba(10,10,9,.07);
+}
+body{
+  font-family:var(--f);
+  background:#fff;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+img{display:block}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:60px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 3rem;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s;
+}
+nav.on{border-color:var(--line)}
+.nwm{font-size:15px;font-weight:300;letter-spacing:-.02em;color:var(--ink)}
+.nwm b{font-weight:700;color:var(--ink)}
+.ncta{
+  font-size:13px;font-weight:600;
+  color:#fff;background:var(--ink);
+  padding:.46rem 1.2rem;border-radius:8px;
+  transition:opacity .18s,transform .15s;
+}
+.ncta:hover{opacity:.75;transform:translateY(-1px)}
+
+/* HERO */
+.hero{
+  min-height:100svh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+  padding:60px 2rem 5rem;
+  border-bottom:1px solid var(--line);
+}
+.hkicker{
+  font-size:11px;font-weight:500;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--dim);
+  margin-bottom:3rem;
+  opacity:0;animation:up .4s .02s ease forwards;
+}
+.htitle{margin-bottom:2.5rem;line-height:.88;letter-spacing:-.055em}
+.hrow{display:block;padding-bottom:.1em;margin-bottom:-.1em}
+.hrow span{display:block;clip-path:inset(0 100% 0 0);opacity:0}
+.hw{font-size:clamp(4rem,11vw,11rem);font-weight:700;color:var(--ink)}
+.hw span{animation:reveal .7s .06s cubic-bezier(.77,0,.18,1) forwards}
+.hf{font-size:clamp(3.25rem,9vw,9rem);font-weight:200;color:var(--dim)}
+.hf span{animation:reveal .7s .2s cubic-bezier(.77,0,.18,1) forwards}
+@keyframes reveal{0%{clip-path:inset(0 100% 0 0);opacity:1}100%{clip-path:inset(0 0% 0 0);opacity:1}}
+@keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.04);opacity:.3}}
+
+.hsub{
+  font-size:18px;font-weight:300;line-height:1.75;
+  color:var(--mid);max-width:32ch;margin:0 auto 1.25rem;
+  opacity:0;animation:up .5s .32s ease forwards;
+}
+.hsub-small{
+  font-size:13px;font-weight:400;letter-spacing:.04em;
+  color:var(--dim);margin:0 auto 3rem;
+  opacity:0;animation:up .5s .85s ease forwards;
+  text-align:center;
+}
+  display:inline-flex;align-items:center;gap:.55rem;
+  font-size:16px;font-weight:600;color:var(--ink);
+  background:#fff;
+  border:1px solid rgba(10,10,9,.14);border-bottom-color:rgba(10,10,9,.22);
+  padding:.9rem 2.4rem;border-radius:980px;
+  box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(10,10,9,.05),0 4px 14px rgba(10,10,9,.06);
+  opacity:0;animation:up .5s 1s ease forwards;
+  transition:box-shadow .22s,transform .22s;
+}
+.hcta:hover{
+  box-shadow:inset 0 1px 0 #fff,0 2px 12px rgba(10,10,9,.1),0 14px 36px rgba(10,10,9,.09);
+  transform:translateY(-2px);
+}
+
+/* TICKER */
+.ticker{
+  overflow:hidden;border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);padding:.65rem 0;background:#f2f7f3;
+}
+.ttrack{display:flex;animation:mq 55s linear infinite;white-space:nowrap}
+.ti{font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);padding:0 2.25rem;border-right:1px solid var(--line);flex-shrink:0}
+.ti.bold{color:#0a1a0f;font-weight:700}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* MANIFESTO */
+
+/* STATEMENT */
+
+
+/* MANIFESTO */
+.manifesto{
+  background:#0a1a0f;
+  padding:9rem 3rem;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.m-wm{
+  position:absolute;
+  font-size:40vw;font-weight:900;letter-spacing:-.08em;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(255,255,255,.04);
+  top:50%;left:50%;transform:translate(-50%,-52%);
+  pointer-events:none;user-select:none;white-space:nowrap;
+  opacity:0;transition:opacity 1.2s .3s ease;
+}
+.manifesto.in .m-wm{opacity:1}
+.m-inner{position:relative;z-index:1}
+.m-label{
+  font-size:10px;font-weight:600;letter-spacing:.22em;
+  text-transform:uppercase;color:rgba(255,255,255,.22);
+  display:block;margin-bottom:2.5rem;
+}
+.m-hed{
+  font-size:clamp(2rem,3.5vw,3.5rem);
+  font-weight:800;letter-spacing:-.04em;line-height:1.08;
+  color:#fff;margin:0 auto 2rem;
+  display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.28em;
+}
+.m-word{
+  display:inline-block;
+  opacity:0;transform:translateY(16px);
+  transition:opacity .5s ease,transform .5s cubic-bezier(.16,1,.3,1);
+}
+.m-word.vis{opacity:1;transform:none}
+.m-sub{
+  font-size:17px;font-weight:300;line-height:1.8;
+  color:rgba(255,255,255,.35);max-width:38ch;margin:0 auto;
+}
+.m-sub span{display:block}
+
+/* SYMBOLS — pure CSS, no SVG */
+.sym{
+  width:40px;height:40px;
+  margin:0 auto 2.5rem;
+  position:relative;display:flex;align-items:center;justify-content:center;
+}
+.sym::before,.sym::after{content:'';position:absolute;background:var(--ink)}
+/* Two crossing lines forming a plus — the mark of craft */
+.sym::before{width:1.5px;height:100%;left:50%;transform:translateX(-50%)}
+.sym::after{height:1.5px;width:100%;top:50%;transform:translateY(-50%)}
+.sym-corner{
+  position:absolute;width:10px;height:10px;
+  border-color:var(--ink);border-style:solid;border-width:0;
+}
+.sym-corner.tl{top:0;left:0;border-top-width:1.5px;border-left-width:1.5px}
+.sym-corner.tr{top:0;right:0;border-top-width:1.5px;border-right-width:1.5px}
+.sym-corner.bl{bottom:0;left:0;border-bottom-width:1.5px;border-left-width:1.5px}
+.sym-corner.br{bottom:0;right:0;border-bottom-width:1.5px;border-right-width:1.5px}
+
+.sym-dark{
+  width:40px;height:40px;
+  margin:0 auto 2.5rem;
+  position:relative;display:flex;align-items:center;justify-content:center;
+}
+.sym-dark::before,.sym-dark::after{content:'';position:absolute;background:rgba(255,255,255,.3)}
+.sym-dark::before{width:1.5px;height:100%;left:50%;transform:translateX(-50%)}
+.sym-dark::after{height:1.5px;width:100%;top:50%;transform:translateY(-50%)}
+.sym-dark-corner{
+  position:absolute;width:10px;height:10px;
+  border-color:rgba(255,255,255,.3);border-style:solid;border-width:0;
+}
+.sym-dark-corner.tl{top:0;left:0;border-top-width:1.5px;border-left-width:1.5px}
+.sym-dark-corner.tr{top:0;right:0;border-top-width:1.5px;border-right-width:1.5px}
+.sym-dark-corner.bl{bottom:0;left:0;border-bottom-width:1.5px;border-left-width:1.5px}
+.sym-dark-corner.br{bottom:0;right:0;border-bottom-width:1.5px;border-right-width:1.5px}
+.beliefs{padding:10rem 3rem;border-bottom:1px solid var(--line)}
+.slabel{
+  font-size:10px;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--dim);
+  display:block;margin-bottom:5rem;text-align:center;
+}
+.blist{border-top:1px solid var(--line);max-width:720px;margin:0 auto}
+.brow{
+  border-bottom:1px solid var(--line);
+  padding:4rem 0;
+  display:grid;grid-template-columns:4rem 1fr;gap:3rem;
+  align-items:start;cursor:default;
+  transition:padding-left .22s ease,background .25s ease;
+  position:relative;overflow:hidden;
+}
+.brow:last-child{border-bottom:none}
+.brow::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:2px;
+  background:#0a1a0f;transform:scaleY(0);transform-origin:bottom;
+  transition:transform .4s cubic-bezier(.16,1,.3,1);
+}
+.brow:hover::before{transform:scaleY(1);transform-origin:top}
+.brow:hover{padding-left:.5rem;background:rgba(242,247,243,.8)}
+.brow:nth-child(1):hover{background:rgba(242,247,243,.8)}
+.brow:nth-child(2):hover{background:rgba(235,255,242,.65)}
+.brow:nth-child(3):hover{background:rgba(248,235,255,.65)}
+.brow:nth-child(4):hover{background:rgba(255,249,235,.65)}
+.bn{font-size:10px;font-weight:600;letter-spacing:.1em;color:var(--dim);padding-top:.45rem}
+.bt{
+  font-size:clamp(1rem,1.5vw,1.3rem);
+  font-weight:600;letter-spacing:-.03em;line-height:1.35;color:var(--ink);
+}
+
+/* SERVICES */
+.services{padding:10rem 3rem;border-bottom:1px solid var(--line);background:var(--off)}
+.slist{border-top:1px solid var(--line);max-width:860px;margin:0 auto}
+.slist:has(.svc:hover) .svc{opacity:.3;transform:translateY(0)}
+.slist:has(.svc:hover) .svc:hover{opacity:1}
+.svc{
+  border-bottom:1px solid var(--line);
+  padding:2.5rem 0;
+  display:grid;grid-template-columns:3.5rem 1fr 44px;gap:2.5rem;
+  align-items:start;cursor:default;
+  transition:opacity .4s ease,padding-left .25s ease,background .3s ease;
+  position:relative;
+}
+.svc:last-child{border-bottom:none}
+.svc:hover{padding-left:.5rem;background:rgba(242,247,243,.8)}
+.svc:nth-child(1):hover{background:rgba(242,247,243,.8)}
+.svc:nth-child(2):hover{background:rgba(242,247,243,.8)}
+.svc:nth-child(3):hover{background:rgba(242,247,243,.8)}
+.svc:nth-child(4):hover{background:rgba(242,247,243,.8)}
+.svc:nth-child(5):hover{background:rgba(242,247,243,.8)}
+.svc:nth-child(6):hover{background:rgba(242,247,243,.8)}
+.sn{font-size:10px;font-weight:600;letter-spacing:.1em;color:var(--dim);padding-top:.4rem}
+.snm{
+  font-size:clamp(1rem,1.5vw,1.4rem);
+  font-weight:700;letter-spacing:-.03em;color:var(--ink);
+  line-height:1.15;transition:opacity .2s;
+}
+.sds{
+  font-size:14px;font-weight:300;line-height:1.8;color:var(--mid);
+  opacity:0;transform:translateY(-6px);margin-top:0;
+  transition:opacity .35s ease,transform .35s ease,margin-top .35s ease;
+  pointer-events:none;
+}
+.svc:hover .sds{opacity:1;transform:translateY(0);margin-top:.6rem;pointer-events:auto}
+
+/* ABOUT */
+.about{padding:10rem 3rem;border-bottom:1px solid var(--line)}
+.about-wrap{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 240px;gap:8rem;align-items:center}
+.apre{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:2.5rem}
+.aname{
+  font-size:clamp(3rem,6vw,6rem);
+  font-weight:900;letter-spacing:-.055em;line-height:.88;margin-bottom:3rem;
+}
+.an1{display:block;color:var(--ink);font-weight:700}
+.an2{display:block;color:var(--dim);font-weight:200}
+.arule{height:1px;background:var(--line);margin-bottom:2rem}
+.ameta{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:1.75rem}
+.abio{font-size:16px;font-weight:300;line-height:1.9;color:var(--mid)}
+.asocial{display:flex;gap:.75rem;margin-top:1.75rem}
+.asocial-link{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:36px;height:36px;
+  color:var(--mid);
+  border:1px solid var(--line);
+  border-radius:8px;
+  transition:color .15s,border-color .15s;
+}
+.asocial-link:hover{color:var(--ink);border-color:var(--dim)}
+.anyc{
+  display:flex;align-items:center;gap:.5rem;margin-top:2rem;
+  font-size:10px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--mid);
+}
+.anyc::before{content:'';width:14px;height:1px;background:currentColor}
+.aimg-col{position:relative}
+.aimg{
+  width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;
+  border-radius:12px;filter:grayscale(8%);display:block;
+}
+.aframe{
+  position:absolute;top:-12px;left:-12px;right:12px;bottom:12px;
+  border:1.5px solid var(--line);border-radius:12px;z-index:-1;
+}
+
+/* CONTACT */
+.contact{padding:10rem 3rem;background:var(--off)}
+.clabel{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:2rem;text-align:center}
+.cemail{
+  display:block;text-align:center;
+  font-size:1.1rem;
+  font-weight:600;letter-spacing:-.01em;line-height:1.5;
+  color:var(--ink);margin-bottom:3rem;
+  transition:opacity .2s;
+  cursor:pointer;
+}
+.cemail:hover{opacity:.5}
+.cfoot{
+  display:flex;flex-direction:column;gap:0;padding-top:2.5rem;
+  border-top:1px solid var(--line);
+  max-width:380px;margin:0 auto;text-align:center;
+}
+.cmeta{display:flex;flex-direction:column;gap:1.5rem;align-items:center}
+.cm{display:flex;flex-direction:column;align-items:center;gap:.35rem}
+.ck{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.cv{font-size:14px;font-weight:400;color:var(--ink);position:relative;transition:opacity .15s;text-align:center}
+.cv.cp{cursor:pointer}.cv.cp:hover{opacity:.5}
+.ctip{
+  position:absolute;left:0;bottom:calc(100%+.35rem);
+  font-size:10px;font-weight:600;color:#fff;background:var(--ink);
+  padding:.25rem .6rem;border-radius:4px;white-space:nowrap;
+  pointer-events:none;opacity:0;transform:translateY(2px);
+  transition:opacity .2s,transform .2s;
+}
+.cv.done .ctip{opacity:1;transform:none}
+.cbtn{
+  display:inline-flex;align-items:center;gap:.55rem;
+  font-size:14px;font-weight:600;color:#fff;
+  background:var(--ink);padding:.85rem 2rem;border-radius:8px;
+  box-shadow:0 4px 16px rgba(10,10,9,.12);
+  transition:opacity .18s,transform .18s;
+}
+.cbtn:hover{opacity:.7;transform:translateY(-1px)}
+
+/* FOOTER */
+footer{
+  background:#0a1a0f;
+  padding:2rem 3rem;border-top:1px solid rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;font-size:11px;color:rgba(255,255,255,.2);letter-spacing:.04em;
+}
+.fwm{font-size:13px;font-weight:300;color:var(--mid);letter-spacing:-.02em}
+.fwm b{font-weight:700;color:var(--ink)}
+.flinks{display:flex;gap:1.5rem}
+.flinks a{color:rgba(255,255,255,.25);transition:color .15s}.flinks a:hover{color:rgba(255,255,255,.6)}
+
+/* REVEAL */
+.r{
+  opacity:0;transform:translateY(14px);
+  transition:opacity .6s ease,transform .6s ease;
+}
+.r.in{opacity:1;transform:none}
+
+/* Staggered children */
+.r-stagger > *{
+  opacity:0;transform:translateY(10px);
+  transition:opacity .5s ease,transform .5s ease;
+}
+.r-stagger.in > *:nth-child(1){opacity:1;transform:none;transition-delay:.0s}
+.r-stagger.in > *:nth-child(2){opacity:1;transform:none;transition-delay:.06s}
+.r-stagger.in > *:nth-child(3){opacity:1;transform:none;transition-delay:.12s}
+.r-stagger.in > *:nth-child(4){opacity:1;transform:none;transition-delay:.18s}
+.r-stagger.in > *:nth-child(5){opacity:1;transform:none;transition-delay:.24s}
+.r-stagger.in > *:nth-child(6){opacity:1;transform:none;transition-delay:.30s}
+
+/* Slide from left */
+.r-left{
+  opacity:0;transform:translateX(-24px);
+  transition:opacity .75s ease,transform .75s cubic-bezier(.16,1,.3,1);
+}
+.r-left.in{opacity:1;transform:none}
+
+/* ── HERO ILLUSTRATION ── */
+
+.hero-bg svg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+
+/* ── SERVICE ICONS ── */
+.svc-icon{
+  display:flex;align-items:center;justify-content:center;
+  width:36px;height:36px;
+  border:1px solid var(--line);border-radius:8px;
+  flex-shrink:0;
+  opacity:0;transition:opacity .2s,background .2s;
+  margin-top:.2rem;
+}
+.svc:hover .svc-icon{opacity:1;background:var(--off)}
+
+/* ── COLOR DOTS GRID ── */
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <span class="nwm"><b>Word </b>Force</span>
+  <a href="#manifesto" class="ncta">Why We Exist</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;overflow:hidden" aria-hidden="true">
+    <div style="width:480px;height:480px;border-radius:50%;border:1px solid rgba(0,0,0,.06);animation:pulse 6s ease-in-out infinite"></div>
+  </div>
+
+  <p class="hkicker"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#0a1a0f;margin-right:.5rem;vertical-align:middle;animation:blink 3s ease-in-out infinite"></span>Communication Studio</p>
+  <div class="htitle">
+    <div class="hrow hw"><span>WORD</span></div>
+    <div class="hrow hf"><span>FORCE</span></div>
+  </div>
+  <p class="hsub">A multidisciplinary communication studio that integrates technology into modern culture through <span class="anim-phrase">clear, human words.</span></p>
+  <p class="hsub-small">Based in New York City. Working globally.</p>
+  <a href="#services" class="hcta" id="hero-cta">
+    Services
+    <svg width="14" height="12" viewBox="0 0 14 12" fill="none"><path d="M1 6h12M8 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ttrack">
+    <span class="ti bold">Word Force</span><span class="ti">Narrative Design</span><span class="ti">Thesis Development</span><span class="ti">Product Storytelling</span><span class="ti">Cultural Imprint</span><span class="ti">Launch Campaigns</span><span class="ti">Everyday Comms</span><span class="ti">Working Globally</span>
+    <span class="ti bold">Word Force</span><span class="ti">Narrative Design</span><span class="ti">Thesis Development</span><span class="ti">Product Storytelling</span><span class="ti">Cultural Imprint</span><span class="ti">Launch Campaigns</span><span class="ti">Everyday Comms</span><span class="ti">Working Globally</span>
+  </div>
+</div>
+
+<!-- MANIFESTO -->
+<section class="manifesto" id="manifesto">
+  <span class="m-wm" aria-hidden="true">WORDS</span>
+  <div class="m-inner r">
+    <div style="margin:0 auto 2.5rem;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;border:1.5px solid rgba(100,200,120,.4);box-shadow:0 0 0 1px rgba(100,200,120,.08)">
+      <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
+        <rect x="1" y="1" width="20" height="14" rx="3" stroke="rgba(255,255,255,.5)" stroke-width="1.3" fill="none"/>
+        <line x1="4" y1="5" x2="7" y2="5" stroke="rgba(255,255,255,.5)" stroke-width="1.3" stroke-linecap="round"/>
+        <line x1="9.5" y1="5" x2="12.5" y2="5" stroke="rgba(255,255,255,.5)" stroke-width="1.3" stroke-linecap="round"/>
+        <line x1="15" y1="5" x2="18" y2="5" stroke="rgba(255,255,255,.5)" stroke-width="1.3" stroke-linecap="round"/>
+        <line x1="4" y1="9" x2="7" y2="9" stroke="rgba(255,255,255,.5)" stroke-width="1.3" stroke-linecap="round"/>
+        <line x1="9.5" y1="9" x2="12.5" y2="9" stroke="rgba(255,255,255,.5)" stroke-width="1.3" stroke-linecap="round"/>
+        <line x1="15" y1="9" x2="18" y2="9" stroke="rgba(255,255,255,.5)" stroke-width="1.3" stroke-linecap="round"/>
+        <rect x="7" y="12" width="8" height="1.5" rx=".75" fill="rgba(255,255,255,.35)"/>
+      </svg>
+    </div>
+    <span class="m-label">Why we exist</span>
+    <h2 class="m-hed">
+      <span class="m-word">The</span>
+      <span class="m-word">story</span>
+      <span class="m-word">is</span>
+      <span class="m-word">always</span>
+      <span class="m-word">being</span>
+      <span class="m-word">written.</span>
+    </h2>
+    <p class="m-sub"><span>The best companies author their story.</span><span>We are the studio that writes it with them.</span></p>
+  </div>
+</section>
+
+<!-- BELIEFS -->
+<section class="beliefs" id="beliefs">
+  <span class="slabel r">What we believe to be true.</span>
+  <div class="blist r-stagger">
+    <div class="brow"><span class="bn">01</span><p class="bt">A word is the smallest unit a company, a product, or a culture is built on.</p></div>
+    <div class="brow"><span class="bn">02</span><p class="bt">Language is the foundation technology stands on when it meets the people it was built for.</p></div>
+    <div class="brow"><span class="bn">03</span><p class="bt">Tone is empathy made legible. A point of view held with discipline across every surface.</p></div>
+    <div class="brow"><span class="bn">04</span><p class="bt">Truth is a craft. Kindness is how it travels from one person to the next.</p></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <span class="slabel r">Services</span>
+  <div class="slist r-stagger">
+    <div class="svc"><span class="sn">01</span><div><div class="snm">Narrative Design</div><p class="sds">The core story a company is built on, designed to hold across every room, round, and chapter ahead.</p></div>
+      <div class="svc-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 10.5 L3.5 8 L9.5 2 Q11 .5 12.5 2 Q14 3.5 12.5 5 L6.5 11 L3 10.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" fill="none"/><line x1="8" y1="3.5" x2="11" y2="6.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+    </div>
+    <div class="svc"><span class="sn">02</span><div><div class="snm">Investor Narrative</div><p class="sds">The story a company tells when everything is on the line. Built to hold up in the room, on the deck, and in the memory of the people writing the check.</p></div>
+      <div class="svc-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="3" width="10" height="8" rx="1" stroke="currentColor" stroke-width="1.2" fill="none"/><line x1="4" y1="6" x2="10" y2="6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><line x1="4" y1="8.5" x2="7.5" y2="8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M8 1 L8 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M6 1 L6 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+    </div>
+    <div class="svc"><span class="sn">03</span><div><div class="snm">Product Storytelling</div><p class="sds">The language a product uses to explain itself to the world it is entering and the people it was built for.</p></div>
+      <div class="svc-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2 H12 Q13 2 13 3 V8 Q13 9 12 9 H7 L4 12 L4 9 H2 Q1 9 1 8 V3 Q1 2 2 2Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" fill="none"/></svg></div>
+    </div>
+    <div class="svc"><span class="sn">04</span><div><div class="snm">Launch Campaigns</div><p class="sds">The story, sequence, and human sentences around every moment a product steps into public view.</p></div>
+      <div class="svc-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="7" y="1.5" width="7.5" height="7.5" rx=".5" transform="rotate(45 7 7)" stroke="currentColor" stroke-width="1.2" fill="none"/></svg></div>
+    </div>
+    <div class="svc"><span class="sn">05</span><div><div class="snm">Everyday Comms</div><p class="sds">The quiet, consistent work of sounding like yourself across every email, post, update, and interview.</p></div>
+      <div class="svc-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3.5" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M1 5 L7 8.5 L13 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+    </div>
+    <div class="svc"><span class="sn">06</span><div><div class="snm">Cultural Imprint</div><p class="sds">The work of placing a company inside the conversations that matter, so the market remembers it on purpose.</p></div>
+      <div class="svc-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="1.5" fill="currentColor"/><path d="M7 3.5 A3.5 3.5 0 0 1 10.5 7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/><path d="M7 1 A6 6 0 0 1 13 7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/><path d="M7 6A1.5 1.5 0 0 0 5.5 7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about r" id="about">
+  <div class="about-wrap">
+    <div>
+      <span class="apre">(Principal Force)</span>
+      <div class="aname">
+        <span class="an1">Aalap</span>
+        <span class="an2">Tanna</span>
+      </div>
+      <div class="arule"></div>
+      <p class="abio">He has spent his career making things understood. Across film, advertising, and strategy, he works where what a company means and what it says finally become the same thing. Word Force is that work, given a permanent home.</p>
+      <div class="asocial">
+        <a href="https://www.linkedin.com/in/aalaptanna/" target="_blank" rel="noopener" class="asocial-link" aria-label="LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://x.com/Aalap_tanna" target="_blank" rel="noopener" class="asocial-link" aria-label="X">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="aimg-col">
+      <img class="aimg" src="https://framerusercontent.com/images/Tju7Xm1wK3DrGzdBUAZH8flx0.jpeg" alt="Aalap Tanna"/>
+      <div class="aframe"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact r" id="contact">
+  <span class="clabel">Get in touch</span>
+  <a href="mailto:aalap@wordforce.ink" class="cemail">aalap@wordforce.ink</a>
+  <div class="cfoot">
+    <div class="cmeta">
+      <div class="cm"><span class="ck">Phone</span><a href="tel:+12243985988" class="cv" style="cursor:pointer">+1 (224) 398-5988</a></div>
+      <div class="cm"><span class="ck">Location</span><span class="cv">New York City</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="fwm"><b>Word </b>Force</span>
+  <div class="flinks">
+    <a href="#">LinkedIn</a><a href="#">Privacy</a>
+  </div>
+  <span>© 2026 Word Force Advertising LLC</span>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('on', scrollY > 40);
+}, { passive: true });
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: .07, rootMargin: '0px 0px -24px 0px' });
+document.querySelectorAll('.r,.r-stagger,.r-left').forEach(el => io.observe(el));
+
+/* Manifesto word animation */
+const mObs = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) {
+    entries[0].target.classList.add('in');
+    document.querySelectorAll('.m-word').forEach((w, i) => {
+      setTimeout(() => w.classList.add('vis'), i * 100);
+    });
+    mObs.disconnect();
+  }
+}, { threshold: .2 });
+const mEl = document.getElementById('manifesto');
+if (mEl) mObs.observe(mEl);
+
+/* Magnetic */
+function mag(id) {
+  const el = document.getElementById(id); if (!el) return;
+  document.addEventListener('mousemove', e => {
+    const r = el.getBoundingClientRect();
+    const bx = r.left + r.width/2, by = r.top + r.height/2;
+    const d = Math.hypot(e.clientX - bx, e.clientY - by);
+    el.style.transform = d < 120 ? `translate(${(e.clientX-bx)*.2}px,${(e.clientY-by)*.2}px)` : '';
+    if (d > 140) el.style.transform = '';
+  });
+}
+
+mag('hero-cta'); mag('send-btn');
+
+/* Dots grid */
+document.querySelectorAll('.cv.cp').forEach(el => {
+  el.addEventListener('click', () => {
+    navigator.clipboard.writeText(el.dataset.copy).then(() => {
+      el.classList.add('done'); setTimeout(() => el.classList.remove('done'), 2000);
+    });
+  });
+});
+</script>
+</body>
+</html>
