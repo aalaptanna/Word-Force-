@@ -265,6 +265,80 @@ nav.on{border-color:var(--line)}
 /* ABOUT */
 .about{padding:10rem 3rem;border-bottom:1px solid var(--line)}
 .about-wrap{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 240px;gap:8rem;align-items:center}
+
+/* ── TABLET (max 1024px) ── */
+@media(max-width:1024px){
+  nav{padding:0 2rem}
+  .hero{padding:60px 2rem 4rem}
+  .beliefs,.services,.manifesto,.about,.contact{padding:6rem 2rem}
+  .about-wrap{gap:4rem}
+  .svc{grid-template-columns:2.75rem 1fr 44px;gap:2rem}
+  .brow{gap:2rem;padding:3rem 0}
+}
+
+/* ── MOBILE (max 768px) ── */
+@media(max-width:768px){
+  /* NAV */
+  nav{padding:0 1.25rem;height:52px}
+  .nwm{font-size:13px}
+  .ncta{font-size:12px;padding:.38rem .9rem}
+
+  /* HERO */
+  .hero{padding:52px 1.25rem 3.5rem;min-height:100svh}
+  .htitle{margin-bottom:2rem}
+  .hw{font-size:clamp(3.5rem,18vw,7rem)}
+  .hf{font-size:clamp(2.75rem,15vw,5.5rem)}
+  .hsub{font-size:15px;max-width:100%;margin-bottom:1rem}
+  .hsub-small{font-size:12px;margin-bottom:2.5rem}
+  .hcta{font-size:14px;padding:.8rem 1.75rem}
+  .hkicker{font-size:10px;margin-bottom:2rem}
+
+  /* TICKER */
+  .ticker{padding:.5rem 0}
+  .ti{font-size:9.5px;padding:0 1.5rem}
+
+  /* MANIFESTO */
+  .manifesto{padding:5rem 1.25rem}
+  .m-hed{font-size:clamp(1.5rem,6vw,2rem);white-space:normal}
+  .m-sub{font-size:14px}
+  .m-label{margin-bottom:1.75rem}
+
+  /* BELIEFS */
+  .beliefs{padding:4.5rem 1.25rem}
+  .blist{border-top:1px solid var(--line)}
+  .brow{grid-template-columns:2.5rem 1fr;gap:1.25rem;padding:2.25rem 0}
+  .bt{font-size:1rem}
+  .slabel{margin-bottom:3rem}
+
+  /* SERVICES */
+  .services{padding:4.5rem 1.25rem}
+  .slist{border-top:1px solid var(--line)}
+  .svc{grid-template-columns:2.5rem 1fr;gap:1.25rem;padding:1.75rem 0}
+  .svc-icon{display:none}
+  .snm{font-size:1.05rem}
+  .sds{font-size:12.5px}
+
+  /* ABOUT */
+  .about{padding:4.5rem 1.25rem}
+  .about-wrap{grid-template-columns:1fr;gap:2rem}
+  .aimg-col{display:flex;justify-content:center;order:-1}
+  .aimg{width:120px;aspect-ratio:3/4}
+  .aframe{top:-10px;left:-10px;right:10px;bottom:10px}
+  .aname{font-size:clamp(2.75rem,14vw,4.5rem);margin-bottom:1.75rem}
+  .abio{font-size:14px}
+  .arule{margin-bottom:1.25rem}
+
+  /* CONTACT */
+  .contact{padding:4.5rem 1.25rem}
+  .clabel{margin-bottom:1.75rem}
+  .cemail{font-size:clamp(.95rem,5vw,1.4rem);margin-bottom:3rem}
+  .cfoot{max-width:100%;padding-top:2rem}
+  .cm{align-items:center}
+
+  /* FOOTER */
+  footer{padding:1.5rem 1.25rem;flex-direction:column;gap:.75rem;text-align:center}
+  .flinks{justify-content:center}
+}
 .apre{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:2.5rem}
 .aname{
   font-size:clamp(3rem,6vw,6rem);
@@ -311,6 +385,7 @@ nav.on{border-color:var(--line)}
   color:var(--ink);margin-bottom:3rem;
   transition:opacity .2s;
   cursor:pointer;
+  text-decoration:none;
 }
 .cemail:hover{opacity:.5}
 .cfoot{
@@ -347,8 +422,8 @@ footer{
   display:flex;align-items:center;justify-content:space-between;
   flex-wrap:wrap;gap:1rem;font-size:11px;color:rgba(255,255,255,.2);letter-spacing:.04em;
 }
-.fwm{font-size:13px;font-weight:300;color:var(--mid);letter-spacing:-.02em}
-.fwm b{font-weight:700;color:var(--ink)}
+.fwm{font-size:13px;font-weight:300;color:rgba(255,255,255,.45);letter-spacing:-.02em}
+.fwm b{font-weight:700;color:rgba(255,255,255,.9)}
 .flinks{display:flex;gap:1.5rem}
 .flinks a{color:rgba(255,255,255,.25);transition:color .15s}.flinks a:hover{color:rgba(255,255,255,.6)}
 
@@ -525,7 +600,7 @@ footer{
 <!-- CONTACT -->
 <section class="contact r" id="contact">
   <span class="clabel">Get in touch</span>
-  <a href="mailto:aalap@wordforce.ink" class="cemail">aalap@wordforce.ink</a>
+  <a href="mailto:aalap@wordforce.ink?subject=Let's Work Together" class="cemail">aalap@wordforce.ink</a>
   <div class="cfoot">
     <div class="cmeta">
       <div class="cm"><span class="ck">Phone</span><a href="tel:+12243985988" class="cv" style="cursor:pointer">+1 (224) 398-5988</a></div>
@@ -537,7 +612,7 @@ footer{
 <footer>
   <span class="fwm"><b>Word </b>Force</span>
   <div class="flinks">
-    <a href="#">LinkedIn</a><a href="#">Privacy</a>
+    <a href="https://www.linkedin.com/in/aalaptanna/" target="_blank" rel="noopener">LinkedIn</a><a href="#">Privacy</a>
   </div>
   <span>© 2026 Word Force Advertising LLC</span>
 </footer>
