@@ -227,108 +227,27 @@ nav.on{border-color:var(--line)}
   font-weight:600;letter-spacing:-.03em;line-height:1.35;color:var(--ink);
 }
 
-/* SERVICES */
-.services{padding:10rem 3rem;border-bottom:1px solid var(--line);background:var(--off)}
-.slist{border-top:1px solid var(--line);max-width:860px;margin:0 auto}
-.slist:has(.svc:hover) .svc{opacity:.3;transform:translateY(0)}
-.slist:has(.svc:hover) .svc:hover{opacity:1}
-.svc{
-  border-bottom:1px solid var(--line);
-  padding:2.5rem 0;
-  display:grid;grid-template-columns:3.5rem 1fr 44px;gap:2.5rem;
-  align-items:start;cursor:default;
-  transition:opacity .4s ease,padding-left .25s ease,background .3s ease;
-  position:relative;
-}
-.svc:last-child{border-bottom:none}
-.svc:hover{padding-left:.5rem;background:rgba(242,247,243,.8)}
-.svc:nth-child(1):hover{background:rgba(242,247,243,.8)}
-.svc:nth-child(2):hover{background:rgba(242,247,243,.8)}
-.svc:nth-child(3):hover{background:rgba(242,247,243,.8)}
-.svc:nth-child(4):hover{background:rgba(242,247,243,.8)}
-.svc:nth-child(5):hover{background:rgba(242,247,243,.8)}
-.svc:nth-child(6):hover{background:rgba(242,247,243,.8)}
-.sn{font-size:10px;font-weight:600;letter-spacing:.1em;color:var(--dim);padding-top:.4rem}
-.snm{
-  font-size:clamp(1rem,1.5vw,1.4rem);
-  font-weight:700;letter-spacing:-.03em;color:var(--ink);
-  line-height:1.15;transition:opacity .2s;
-}
-.sds{
-  font-size:14px;font-weight:300;line-height:1.8;color:var(--mid);
-  opacity:0;transform:translateY(-6px);margin-top:0;
-  transition:opacity .35s ease,transform .35s ease,margin-top .35s ease;
-  pointer-events:none;
-}
-.svc:hover .sds{opacity:1;transform:translateY(0);margin-top:.6rem;pointer-events:auto}
 
-/* ABOUT */
-.about{padding:10rem 3rem;border-bottom:1px solid var(--line)}
-.about-wrap{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 240px;gap:8rem;align-items:center}
-
-/* ── TABLET (max 1024px) ── */
-@media(max-width:1024px){
-  nav{padding:0 2rem}
-  .hero{padding:60px 2rem 4rem}
-  .beliefs,.services,.manifesto,.about,.contact{padding:6rem 2rem}
-  .about-wrap{gap:4rem}
-  .svc{grid-template-columns:2.75rem 1fr 44px;gap:2rem}
-  .brow{gap:2rem;padding:3rem 0}
-}
-
-/* ── MOBILE (max 768px) ── */
-@media(max-width:768px){
-  /* NAV */
-  nav{padding:0 1.25rem;height:52px}
-  .nwm{font-size:13px}
-  .ncta{font-size:12px;padding:.38rem .9rem}
-
-  /* HERO */
-  .hero{padding:52px 1.25rem 3.5rem;min-height:100svh}
-  .htitle{margin-bottom:2rem}
-  .hw{font-size:clamp(3.5rem,18vw,7rem)}
-  .hf{font-size:clamp(2.75rem,15vw,5.5rem)}
-  .hsub{font-size:15px;max-width:100%;margin-bottom:1rem}
-  .hsub-small{font-size:12px;margin-bottom:2.5rem}
-  .hcta{font-size:14px;padding:.8rem 1.75rem}
-  .hkicker{font-size:10px;margin-bottom:2rem}
-
-  /* TICKER */
-  .ticker{padding:.5rem 0}
-  .ti{font-size:9.5px;padding:0 1.5rem}
-
-  /* MANIFESTO */
-  .manifesto{padding:5rem 1.25rem}
-  .m-hed{font-size:clamp(1.5rem,6vw,2rem);white-space:normal}
-  .m-sub{font-size:14px}
-  .m-label{margin-bottom:1.75rem}
-
-  /* BELIEFS */
-  .beliefs{padding:4.5rem 1.25rem}
-  .blist{border-top:1px solid var(--line)}
-  .brow{grid-template-columns:2.5rem 1fr;gap:1.25rem;padding:2.25rem 0}
-  .bt{font-size:1rem}
-  .slabel{margin-bottom:3rem}
-
-  /* SERVICES */
-  .services{padding:4.5rem 1.25rem}
-  .slist{border-top:1px solid var(--line)}
-  .svc{grid-template-columns:2.5rem 1fr;gap:1.25rem;padding:1.75rem 0}
-  .svc-icon{display:none}
   .snm{font-size:1.05rem}
   .sds{font-size:12.5px}
 
   /* ABOUT */
-  .about{padding:4.5rem 1.25rem}
-  .about-wrap{grid-template-columns:1fr;gap:2rem}
-  .aimg-col{display:flex;justify-content:center;order:-1}
-  .aimg{width:120px;aspect-ratio:3/4}
-  .aframe{top:-10px;left:-10px;right:10px;bottom:10px}
-  .aname{font-size:clamp(2.75rem,14vw,4.5rem);margin-bottom:1.75rem}
-  .abio{font-size:14px}
-  .arule{margin-bottom:1.25rem}
+.about{padding:6rem 3rem;border-bottom:1px solid var(--line)}
+.about-wrap{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 240px;gap:8rem;align-items:center}
+.apre{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:2.5rem}
+.aname{font-size:clamp(3rem,6vw,6rem);font-weight:900;letter-spacing:-.055em;line-height:.88;margin-bottom:3rem}
+.an1{display:block;color:var(--ink);font-weight:700}
+.an2{display:block;color:var(--dim);font-weight:200}
+.arule{height:1px;background:var(--line);margin-bottom:2rem}
+.abio{font-size:16px;font-weight:300;line-height:1.9;color:var(--mid)}
+.asocial{display:flex;gap:.75rem;margin-top:1.75rem}
+.asocial-link{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;color:var(--mid);border:1px solid var(--line);border-radius:8px;transition:color .15s,border-color .15s}
+.asocial-link:hover{color:var(--ink);border-color:var(--dim)}
+.aimg-col{position:relative}
+.aimg{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;border-radius:12px;filter:grayscale(8%);display:block}
+.aframe{position:absolute;top:-12px;left:-12px;right:12px;bottom:12px;border:1.5px solid var(--line);border-radius:12px;z-index:-1}
 
-  /* CONTACT */
+/* CONTACT */
   .contact{padding:4.5rem 1.25rem}
   .clabel{margin-bottom:1.75rem}
   .cemail{font-size:clamp(.95rem,5vw,1.4rem);margin-bottom:3rem}
@@ -341,8 +260,8 @@ nav.on{border-color:var(--line)}
 }
 .apre{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:2.5rem}
 .aname{
-  font-size:clamp(3rem,6vw,6rem);
-  font-weight:900;letter-spacing:-.055em;line-height:.88;margin-bottom:3rem;
+  font-size:clamp(2rem,4vw,3.5rem);
+  font-weight:800;letter-spacing:-.045em;line-height:.92;margin-bottom:1.5rem;
 }
 .an1{display:block;color:var(--ink);font-weight:700}
 .an2{display:block;color:var(--dim);font-weight:200}
@@ -365,15 +284,100 @@ nav.on{border-color:var(--line)}
   text-transform:uppercase;color:var(--mid);
 }
 .anyc::before{content:'';width:14px;height:1px;background:currentColor}
-.aimg-col{position:relative}
+.about-wrap{max-width:860px;margin:0 auto;display:flex;align-items:flex-start;gap:4rem}
+.about{padding:5rem 3rem;border-bottom:1px solid var(--line)}{position:relative}
 .aimg{
-  width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;
-  border-radius:12px;filter:grayscale(8%);display:block;
+  width:140px;height:180px;object-fit:cover;object-position:center top;border-radius:12px;filter:grayscale(8%);display:block;
 }
 .aframe{
   position:absolute;top:-12px;left:-12px;right:12px;bottom:12px;
   border:1.5px solid var(--line);border-radius:12px;z-index:-1;
 }
+/* AUDIENCE */
+.audience{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);
+  height:320px;
+  overflow:hidden;
+  background:#0a1a0f;
+}
+.aud-left{
+  padding:3rem;
+  display:flex;align-items:center;justify-content:center;
+  border-right:1px solid rgba(255,255,255,.08);
+  flex-shrink:0;
+}
+.aud-hed{
+  font-size:clamp(1rem,1.5vw,1.35rem);
+  font-weight:600;letter-spacing:-.02em;
+  color:rgba(255,255,255,.9);
+}
+.aud-right{
+  overflow:hidden;
+  position:relative;
+  height:320px;
+  background:#0a1a0f;
+}
+/* top and bottom fade */
+.aud-right::before,.aud-right::after{
+  content:'';position:absolute;left:0;right:0;height:110px;z-index:2;pointer-events:none;
+}
+.aud-right::before{top:0;background:linear-gradient(to bottom,#0a1a0f 30%,transparent)}
+.aud-right::after{bottom:0;background:linear-gradient(to top,#0a1a0f 30%,transparent)}
+
+.aud-track{
+  display:flex;flex-direction:column;
+  padding:0 3rem;
+  will-change:transform;
+}
+
+.aud-item{
+  font-size:clamp(1.5rem,2.5vw,2.5rem);
+  font-weight:700;letter-spacing:-.04em;
+  line-height:1.5;
+  color:rgba(255,255,255,.15);
+  white-space:nowrap;
+  flex-shrink:0;
+}
+
+
+
+
+@media(max-width:768px){
+  .audience{grid-template-columns:1fr;height:auto}
+  .aud-left{border-right:none;border-bottom:1px solid var(--line);padding:2rem 1.25rem;height:auto;justify-content:flex-start}
+  .aud-right{height:240px}
+  .aud-track{padding:0 1.25rem}
+  .aud-item{font-size:1.5rem}
+}
+
+/* SERVICES */
+.services{padding:8rem 3rem;border-bottom:1px solid var(--line);background:var(--off)}
+.slist{border-top:1px solid var(--line);max-width:900px;margin:0 auto}
+.slist:has(.svc:hover) .svc{opacity:.3;transform:translateY(0)}
+.slist:has(.svc:hover) .svc:hover{opacity:1}
+.svc{
+  border-bottom:1px solid var(--line);
+  padding:2.5rem 0;
+  display:grid;grid-template-columns:3.5rem 1fr;gap:3rem;
+  align-items:start;cursor:default;
+  transition:opacity .4s ease,padding-left .25s ease,background .3s ease;
+  position:relative;
+}
+.svc:last-child{border-bottom:none}
+.svc:hover{padding-left:.5rem}
+.sn{font-size:10px;font-weight:600;letter-spacing:.1em;color:var(--dim);padding-top:.4rem}
+.snm{font-size:clamp(1.05rem,1.7vw,1.45rem);font-weight:700;letter-spacing:-.025em;color:var(--ink);transition:color .2s;line-height:1.2}
+.svc:hover .snm{color:#0a1a0f}
+.sds{font-size:13.5px;font-weight:300;line-height:1.8;color:var(--mid);opacity:0;transform:translateY(-6px);margin-top:0;transition:opacity .35s ease,transform .35s ease,margin-top .35s ease;pointer-events:none}
+.svc:hover .sds{opacity:1;transform:translateY(0);margin-top:.6rem;pointer-events:auto}
+.svc:nth-child(1):hover{background:rgba(242,247,243,.8)}
+.svc:nth-child(2):hover{background:rgba(242,247,243,.8)}
+.svc:nth-child(3):hover{background:rgba(242,247,243,.8)}
+.svc:nth-child(4):hover{background:rgba(242,247,243,.8)}
+.svc:nth-child(5):hover{background:rgba(242,247,243,.8)}
+.svc:nth-child(6):hover{background:rgba(242,247,243,.8)}
+
 
 /* CONTACT */
 .contact{padding:10rem 3rem;background:var(--off)}
@@ -500,14 +504,13 @@ footer{
 <!-- TICKER -->
 <div class="ticker">
   <div class="ttrack">
-    <span class="ti bold">Word Force</span><span class="ti">Narrative Design</span><span class="ti">Thesis Development</span><span class="ti">Product Storytelling</span><span class="ti">Cultural Imprint</span><span class="ti">Launch Campaigns</span><span class="ti">Everyday Comms</span><span class="ti">Working Globally</span>
-    <span class="ti bold">Word Force</span><span class="ti">Narrative Design</span><span class="ti">Thesis Development</span><span class="ti">Product Storytelling</span><span class="ti">Cultural Imprint</span><span class="ti">Launch Campaigns</span><span class="ti">Everyday Comms</span><span class="ti">Working Globally</span>
+    <span class="ti bold">Word Force</span><span class="ti">Narrative Design</span><span class="ti">Thesis Development</span><span class="ti">Product Storytelling</span><span class="ti">Cultural Imprint</span><span class="ti">Launch Campaigns</span><span class="ti">Everyday Comms</span>
+    <span class="ti bold">Word Force</span><span class="ti">Narrative Design</span><span class="ti">Thesis Development</span><span class="ti">Product Storytelling</span><span class="ti">Cultural Imprint</span><span class="ti">Launch Campaigns</span><span class="ti">Everyday Comms</span>
   </div>
 </div>
 
 <!-- MANIFESTO -->
 <section class="manifesto" id="manifesto">
-  <span class="m-wm" aria-hidden="true">WORDS</span>
   <div class="m-inner r">
     <div style="margin:0 auto 2.5rem;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;border:1.5px solid rgba(100,200,120,.4);box-shadow:0 0 0 1px rgba(100,200,120,.08)">
       <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
@@ -534,6 +537,7 @@ footer{
   </div>
 </section>
 
+
 <!-- BELIEFS -->
 <section class="beliefs" id="beliefs">
   <span class="slabel r">What we believe to be true.</span>
@@ -549,23 +553,34 @@ footer{
 <section class="services" id="services">
   <span class="slabel r">Services</span>
   <div class="slist r-stagger">
-    <div class="svc"><span class="sn">01</span><div><div class="snm">Narrative Design</div><p class="sds">The core story a company is built on, designed to hold across every room, round, and chapter ahead.</p></div>
-      <div class="svc-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 10.5 L3.5 8 L9.5 2 Q11 .5 12.5 2 Q14 3.5 12.5 5 L6.5 11 L3 10.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" fill="none"/><line x1="8" y1="3.5" x2="11" y2="6.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-    </div>
-    <div class="svc"><span class="sn">02</span><div><div class="snm">Investor Narrative</div><p class="sds">The story a company tells when everything is on the line. Built to hold up in the room, on the deck, and in the memory of the people writing the check.</p></div>
-      <div class="svc-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="3" width="10" height="8" rx="1" stroke="currentColor" stroke-width="1.2" fill="none"/><line x1="4" y1="6" x2="10" y2="6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><line x1="4" y1="8.5" x2="7.5" y2="8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M8 1 L8 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M6 1 L6 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-    </div>
-    <div class="svc"><span class="sn">03</span><div><div class="snm">Product Storytelling</div><p class="sds">The language a product uses to explain itself to the world it is entering and the people it was built for.</p></div>
-      <div class="svc-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2 H12 Q13 2 13 3 V8 Q13 9 12 9 H7 L4 12 L4 9 H2 Q1 9 1 8 V3 Q1 2 2 2Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" fill="none"/></svg></div>
-    </div>
-    <div class="svc"><span class="sn">04</span><div><div class="snm">Launch Campaigns</div><p class="sds">The story, sequence, and human sentences around every moment a product steps into public view.</p></div>
-      <div class="svc-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="7" y="1.5" width="7.5" height="7.5" rx=".5" transform="rotate(45 7 7)" stroke="currentColor" stroke-width="1.2" fill="none"/></svg></div>
-    </div>
-    <div class="svc"><span class="sn">05</span><div><div class="snm">Everyday Comms</div><p class="sds">The quiet, consistent work of sounding like yourself across every email, post, update, and interview.</p></div>
-      <div class="svc-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3.5" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M1 5 L7 8.5 L13 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
-    </div>
-    <div class="svc"><span class="sn">06</span><div><div class="snm">Cultural Imprint</div><p class="sds">The work of placing a company inside the conversations that matter, so the market remembers it on purpose.</p></div>
-      <div class="svc-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="1.5" fill="currentColor"/><path d="M7 3.5 A3.5 3.5 0 0 1 10.5 7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/><path d="M7 1 A6 6 0 0 1 13 7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/><path d="M7 6A1.5 1.5 0 0 0 5.5 7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg></div>
+    <div class="svc r"><span class="sn">01</span><div><div class="snm">Narrative Design</div><p class="sds">The core story a company is built on, designed to hold across every room, round, and chapter ahead.</p></div></div>
+    <div class="svc r"><span class="sn">02</span><div><div class="snm">Investor Narrative</div><p class="sds">The story a company tells when everything is on the line. Built to hold up in the room, on the deck, and in the memory of the people writing the check.</p></div></div>
+    <div class="svc r"><span class="sn">03</span><div><div class="snm">Product Storytelling</div><p class="sds">The language a product uses to explain itself to the world it is entering and the people it was built for.</p></div></div>
+    <div class="svc r"><span class="sn">04</span><div><div class="snm">Launch Campaigns</div><p class="sds">The story, sequence, and human sentences around every moment a product steps into public view.</p></div></div>
+    <div class="svc r"><span class="sn">05</span><div><div class="snm">Everyday Comms</div><p class="sds">The quiet, consistent work of sounding like yourself across every email, post, update, and interview.</p></div></div>
+    <div class="svc r"><span class="sn">06</span><div><div class="snm">Cultural Imprint</div><p class="sds">The work of placing a company inside the conversations that matter, so the market remembers it on purpose.</p></div></div>
+  </div>
+</section>
+
+<!-- AUDIENCE SCROLL -->
+<section class="audience">
+  <div class="aud-left">
+    <p class="aud-hed">Built for</p>
+  </div>
+  <div class="aud-right">
+    <div class="aud-track">
+      <div class="aud-item">Technical Founders</div>
+      <div class="aud-item">Series A Startups</div>
+      <div class="aud-item">AI Companies</div>
+      <div class="aud-item">Venture-backed Teams</div>
+      <div class="aud-item">B2B Startups</div>
+      <div class="aud-item">Product Teams</div>
+      <div class="aud-item">Technical Founders</div>
+      <div class="aud-item">Series A Startups</div>
+      <div class="aud-item">AI Companies</div>
+      <div class="aud-item">Venture-backed Teams</div>
+      <div class="aud-item">B2B Startups</div>
+      <div class="aud-item">Product Teams</div>
     </div>
   </div>
 </section>
@@ -580,7 +595,7 @@ footer{
         <span class="an2">Tanna</span>
       </div>
       <div class="arule"></div>
-      <p class="abio">He has spent his career making things understood. Across film, advertising, and strategy, he works where what a company means and what it says finally become the same thing. Word Force is that work, given a permanent home.</p>
+      <p class="abio">Born to journalist parents, he found his way through theatre, film, and advertising into tech. Over five years he has built content, campaigns, and distribution for companies at every stage of growth. He started Word Force because the best technology still needs the right words.</p>
       <div class="asocial">
         <a href="https://www.linkedin.com/in/aalaptanna/" target="_blank" rel="noopener" class="asocial-link" aria-label="LinkedIn">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -604,7 +619,6 @@ footer{
   <div class="cfoot">
     <div class="cmeta">
       <div class="cm"><span class="ck">Phone</span><a href="tel:+12243985988" class="cv" style="cursor:pointer">+1 (224) 398-5988</a></div>
-      <div class="cm"><span class="ck">Location</span><span class="cv">New York City</span></div>
     </div>
   </div>
 </section>
@@ -626,6 +640,8 @@ const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
 }, { threshold: .07, rootMargin: '0px 0px -24px 0px' });
 document.querySelectorAll('.r,.r-stagger,.r-left').forEach(el => io.observe(el));
+
+
 
 /* Manifesto word animation */
 const mObs = new IntersectionObserver(entries => {
@@ -651,6 +667,46 @@ function mag(id) {
     if (d > 140) el.style.transform = '';
   });
 }
+
+
+
+
+
+/* Audience scroll + highlight */
+(function(){
+  const track = document.querySelector('.aud-track');
+  const container = document.querySelector('.aud-right');
+  if(!track || !container) return;
+  const items = track.querySelectorAll('.aud-item');
+  let pos = 0;
+  let frame = 0;
+
+  function highlight(){
+    const ch = container.getBoundingClientRect();
+    const center = ch.top + ch.height / 2;
+    items.forEach(el => {
+      const r = el.getBoundingClientRect();
+      const elCenter = r.top + r.height / 2;
+      const dist = Math.abs(elCenter - center);
+      const maxDist = ch.height / 2;
+      // Smooth 0-1 value based on distance
+      const proximity = Math.max(0, 1 - dist / maxDist);
+      const opacity = 0.12 + proximity * 0.88;
+      el.style.color = 'rgba(255,255,255,' + opacity.toFixed(3) + ')';
+    });
+  }
+
+  function tick(){
+    pos += 0.4;
+    const h = track.scrollHeight / 2;
+    if(h > 0) track.style.transform = 'translateY(-' + (pos % h) + 'px)';
+    frame++;
+    if(frame % 3 === 0) highlight();
+    requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
+})();
 
 mag('hero-cta'); mag('send-btn');
 
